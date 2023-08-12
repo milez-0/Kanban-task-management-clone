@@ -1,0 +1,110 @@
+﻿<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="m-0 relative dark:text-white dark:bg-primary">
+    <header class="flex fixed z-0 bg-white dark:bg-primary top-0 left-0 right-0 h-16 smd:h-24 justify-between dark:border-gray-600 smd:border-b">
+        <div class="smd:w-72 flex items-center flex-shrink-0 dark:border-gray-600 smd:border-r">
+            <div class="pl-4 smd:pl-8 mb-1">
+                <img class="hidden smd:block dark:smd:hidden" src="images/logo-light.svg" alt="Logo">
+                <img class="hidden dark:smd:block " src="images/logo-dark.svg" alt="Logo">
+                <img class="smd:hidden" src="images/logo-mini.svg" alt="Logo">
+            </div>
+        </div>
+        <div class="flex-1 flex items-center pl-4 smd:pl-8">
+            <span class="smd:block hidden">middle section</span>
+            <span id="pop-panel-open" class="smd:hidden inline-block cursor-pointer">middle link</span>
+        </div>
+        <div class="w-24 smd:w-60 flex gap-3 smd:gap-6 items-center justify-end smd:justify-between pr-4 smd:pr-7">
+            <button class="add-task flex items-center  bg-indigo-500 text-base text-white font-medium px-4 h-8 smd:h-12 smd:px-6 smd:py-3 rounded-full">
+                   <div class="mb-1 smd:mb-0 smd:text-base text-2xl">+ <span class="hidden smd:inline-block">Add New Task</span></div>
+            </button>
+            <div id="dot-menu" class="hide flex-shrink-0 relative">
+                <div class="toggle-menu w-4 h-8 z-0 cursor-pointer flex items-center justify-center">
+                    <img src="images/vertical-ellipsis.svg" alt="Menu Icon">
+                </div>
+                <div class="extra">
+                    <div id="edit-board" class="text-indigo-400 text-sm hover:bg-extra dark:hover:bg-extraDark px-4 py-2 cursor-pointer">Edit Board</div>
+                    <div id="delete-board" class="text-red-600 text-sm hover:bg-extra dark:hover:bg-extraDark px-4 py-2 cursor-pointer">Delete Board</div>
+                </div>
+            </div>
+        </div>
+        <div id="panel" class="side-panel-close fixed top-24 -mt-1 bottom-0 dark:bg-primary bg-white flex">
+            <!--only on 540px above screen size-->
+            <div class="side-panel relative">
+                <div class="bg-gray-100 dark:bg-secondary rounded-md flex justify-center items-center gap-6 h-12 absolute mb-3 bottom-20 right-6 -left-2 ml-8">
+                    <img class="h-5" src="images/sun.svg" alt="">
+                    <div id="toggle-view-mode" class="bg-indigo-500 hover:bg-indigo-300 flex gap-2 rounded-full p-0.7 cursor-pointer">
+                        <div class="bg-white visible dark:invisible w-3.5 h-3.5 rounded-full"></div>
+                        <div class="bg-white invisible dark:visible w-3.5 h-3.5 rounded-full"></div>
+                    </div>
+                    <img class="h-4" src="images/moon.svg" alt="">
+                </div>
+            </div>
+            <button id="toggle" class="side-panel-toggle cursor-pointer">
+                <div class="hide-panel flex items-center">
+                    <img class="mr-3" src="images/eye-hide.svg" alt="">
+                    <span class="">Hide Sidebar</span>
+                </div>
+                <img class="show-panel" src="images/eye-show.svg" alt="">
+            </button>
+        </div>
+        <!-- Pop version of side panel for small screens -->
+        <div id="pop-panel-overlay" class="pop-panel-hide smd:hidden initial m-auto">
+            <div id="pop-panel-close" class="fixed left-0 right-0 top-0 bottom-0"></div>
+            <div class="w-hideButton h-80 dark:bg-primary bg-white smd:hidden initial rounded-lg py-5 z-50 relative">
+                <div class="pr-6">
+                    <h3 class="z-10 ml-6">Pop Panel</h3>
+                </div>
+                <!-- toggle view mode -->
+                <div class="px-5">
+                    <div class="bg-gray-100 dark:bg-secondary rounded-md flex justify-center items-center gap-6 h-12 absolute mb-3 bottom-1 right-3 left-3">
+                        <img class="h-5" src="images/sun.svg" alt="">
+                        <div id="pop-view-mode" class="bg-indigo-500 hover:bg-indigo-300 flex gap-2 rounded-full p-0.7 cursor-pointer">
+                            <div class="bg-white visible dark:invisible w-3.5 h-3.5 rounded-full"></div>
+                            <div class="bg-white invisible dark:visible w-3.5 h-3.5 rounded-full"></div>
+                        </div>
+                        <img class="h-4" src="images/moon.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pop add task options -->
+        <div id="header-overlay" class="overlay-hide z-0 m-auto">
+            <div id="overlay-close" class="fixed left-0 right-0 top-0 bottom-0"></div>
+            <div class="w-11/12 max-w-custom1 dark:bg-primary bg-white rounded-lg px-8 py-8 z-50">
+                <h3 class="z-10">Add New Task</h3>
+    
+            </div>
+        </div>
+        <!-- Pop delete board -->
+        <div id="delete-board-overlay" class="delete-hide z-0 m-auto">
+            <div id="delete-overlay-close" class="fixed left-0 right-0 top-0 bottom-0"></div>
+            <div class="w-11/12 max-w-custom1 dark:bg-primary bg-white rounded-lg px-8 py-8 z-50">
+                <h3 class="z-10">Delete board</h3>
+    
+            </div>
+        </div>
+        <!-- Pop edit board -->
+        <div id="edit-board-overlay" class="edit-hide z-0 m-auto">
+            <div id="edit-overlay-close" class="fixed left-0 right-0 top-0 bottom-0"></div>
+            <div class="w-11/12 max-w-custom1 dark:bg-primary bg-white rounded-lg px-8 py-8 z-50">
+                <h3 class="z-10">edit board</h3>
+    
+            </div>
+        </div>
+    </header>
+    
+    <main class="px-6 pt-36 bg-gray-100 dark:bg-secondary -z-10">
+
+    </main>
+
+    <script src="../index.js"></script>
+</body>
+
+</html>

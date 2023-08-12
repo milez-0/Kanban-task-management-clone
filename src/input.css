@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* closed side panel */
+.side-panel, 
+.hide-panel {
+  @apply hidden;
+}
+.side-panel-close .side-panel-toggle {
+  @apply hidden smd:flex w-14 items-center justify-center fixed bottom-8 left-0 bg-indigo-500 px-5 py-6 rounded-tr-full rounded-br-full;
+}
+/* Open side panel */
+.side-panel-open .side-panel {
+  @apply hidden smd:block w-72 dark:border-gray-600 border-r pr-6;
+}
+.side-panel-open .side-panel-toggle {
+  @apply hidden smd:flex items-center justify-start fixed bottom-8 left-0 dark:hover:bg-white hover:bg-indigo-200 hover:text-indigo-600 text-gray-500 bg-white dark:bg-primary dark:text-indigo-300 dark:hover:text-indigo-500 pl-8 py-3 rounded-tr-full rounded-br-full w-hideButton;
+}
+.side-panel-open .hide-panel {
+  @apply flex;
+} 
+.side-panel-open .show-panel {
+  @apply hidden;
+}
+/* end */
+.margin {
+  @apply pl-80;
+}
+.extra {
+  @apply hidden;
+}
+.show .extra {
+  @apply block absolute bg-white dark:bg-secondary w-48 -left-44 top-14 dark:shadow-darkCustom1 shadow-custom1 py-3 rounded-lg;
+}
+.overlay-show {
+  @apply flex justify-center py-10 smd:py-3 fixed inset-0 dark:bg-darkTransGray bg-transGray;
+}
+.overlay-hide {
+  @apply hidden;
+}
+.pop-panel-show {
+  @apply flex justify-center pt-20 fixed inset-0 dark:bg-darkTransGray bg-transGray;
+}
+.pop-panel-hide {
+  @apply hidden;
+}
+.delete-show {
+  @apply flex justify-center pt-20 fixed inset-0 dark:bg-darkTransGray bg-transGray;
+}
+.delete-hide {
+  @apply hidden;
+}
+.edit-show {
+  @apply flex justify-center pt-20 fixed inset-0 dark:bg-darkTransGray bg-transGray;
+}
+.edit-hide {
+  @apply hidden;
+}
+
