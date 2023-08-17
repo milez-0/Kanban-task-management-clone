@@ -985,8 +985,10 @@ video {
 
 /* end */
 
-.margin {
-  padding-left: 20rem;
+@media (min-width: 720px) {
+  .margin {
+    padding-left: 20rem;
+  }
 }
 
 .extra {
@@ -1131,7 +1133,7 @@ video {
 }
 
 :is(.dark .dark\:hover\:bg-extraDark:hover) {
-  background-color: rgba(199, 210, 254, 0.15);
+  background-color: rgba(199, 210, 254, 0.2);
 }
 
 @media (min-width: 720px) {

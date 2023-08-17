@@ -2,9 +2,14 @@
 const sidePanel = document.querySelector('#panel');
 const togglePanel = document.querySelector('#toggle');
 const main = document.querySelector('main');
+const popPanelOverlay = document.querySelector('#pop-panel-overlay');
+const popPanelClose = document.querySelector('#pop-panel-close');
+const popPanelOpen = document.querySelector('#pop-panel-open');
 
 togglePanel?.addEventListener("click", () => {
   sidePanel?.classList.toggle('side-panel-open');
+  popPanelOverlay?.classList.toggle('pop-panel-hide');
+  popPanelOverlay?.classList.toggle('pop-panel-show');
   if (sidePanel?.classList.contains('side-panel-open')) {
     main?.classList.add('margin');
   }
@@ -12,6 +17,24 @@ togglePanel?.addEventListener("click", () => {
     main?.classList.remove('margin');
   }
   // console.log(sidePanel?.classList.contains('side-panel-open'));
+});
+// pop-panel 
+popPanelOpen?.addEventListener("click", () => {
+  popPanelOverlay?.classList.toggle('pop-panel-hide');
+  popPanelOverlay?.classList.toggle('pop-panel-show');
+  sidePanel?.classList.toggle('side-panel-open');
+  if (popPanelOverlay?.classList.contains('pop-panel-show')) {
+    main?.classList.add('margin');
+  }
+});
+
+popPanelClose?.addEventListener('click', () => {
+  popPanelOverlay?.classList.toggle('pop-panel-show');
+  popPanelOverlay?.classList.toggle('pop-panel-hide');
+  sidePanel?.classList.toggle('side-panel-open');
+  if (popPanelOverlay?.classList.contains('pop-panel-hide')) {
+    main?.classList.remove('margin');
+  }
 });
 
 // Vertical ellipsis menu
@@ -38,19 +61,6 @@ overlayCloseButton?.addEventListener("click", () => {
   headerOverlay?.classList.toggle('overlay-show');
 });
 
-const popPanelOverlay = document.querySelector('#pop-panel-overlay');
-const popPanelClose = document.querySelector('#pop-panel-close');
-const popPanelOpen = document.querySelector('#pop-panel-open');
-
-popPanelOpen?.addEventListener("click", () => {
-  popPanelOverlay?.classList.toggle('pop-panel-hide');
-  popPanelOverlay?.classList.toggle('pop-panel-show');
-});
-
-popPanelClose?.addEventListener('click', () => {
-  popPanelOverlay?.classList.toggle('pop-panel-show');
-  popPanelOverlay?.classList.toggle('pop-panel-hide');
-});
 // Delete board confirmation
 const deleteBoard = document.querySelector('#delete-board');
 const deleteBoardConfirm = document.querySelector('#delete-board-overlay');

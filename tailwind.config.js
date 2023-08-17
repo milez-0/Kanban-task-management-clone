@@ -31,7 +31,7 @@ module.exports = {
         secondary: 'rgb(32, 33, 44)',
         primary: 'rgb(54, 54, 63)',
         extra: 'rgba(199, 210, 254, 0.7)',
-        extraDark: 'rgba(199, 210, 254, 0.15)'
+        extraDark: 'rgba(199, 210, 254, 0.2)'
       },
       screens: {
         smd: '720px',
